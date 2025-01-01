@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { YellowBtn } from '@/components/styles/YellowBtn';
 import { Button } from '@/components/styles/Button';
 import { GoPlus } from 'react-icons/go';
-import { CiFilter } from 'react-icons/ci';
 import { BiFilter } from 'react-icons/bi';
 import { RiEdit2Line } from 'react-icons/ri';
 import { IoTrashOutline } from 'react-icons/io5';

@@ -6,7 +6,7 @@ import { DashboardContainer } from "../styles/DashboardContainer";
 import { RiMenu3Fill } from "react-icons/ri";
 import { FaUsers, FaClipboardList, FaCalendarAlt, FaBriefcase, FaCog } from "react-icons/fa";
 import { MdDashboard, MdOutlineClose } from "react-icons/md";
-import { usePathname } from "next/navigation";
+
 import Link from "next/link";
 
 interface DashboardHeaderProps {
@@ -26,7 +26,7 @@ const menuItems = [
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({ title, subtitle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+
   const toggleMenu = () => setMenuOpen(!menuOpen);
     const [activeItem, setActiveItem] = useState(1); // Track the active menu item
 
