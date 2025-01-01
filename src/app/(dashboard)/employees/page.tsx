@@ -2,7 +2,7 @@ import DashboardHeader from '@/components/layouts/DashboardHeader'
 import React from 'react'
 import { EmployeeTypes } from './Interface'
 import { DashboardContainer } from '@/components/styles/DashboardContainer';
-import { FaEye, FaEdit, FaTrash, FaSearch } from 'react-icons/fa';
+import {  FaSearch } from 'react-icons/fa';
 import Image from 'next/image';
 import { YellowBtn } from '@/components/styles/YellowBtn';
 import { Button } from '@/components/styles/Button';

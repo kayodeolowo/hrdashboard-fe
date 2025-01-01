@@ -2,11 +2,7 @@ import DashboardHeader from '@/components/layouts/DashboardHeader'
 import React from 'react'
 import { CandidatesTypes } from './Interface';
 import { DashboardContainer } from '@/components/styles/DashboardContainer';
-import { YellowBtn } from '@/components/styles/YellowBtn';
 import { FaSearch } from 'react-icons/fa';
-import { GoPlus } from 'react-icons/go';
-import { RiEdit2Line } from 'react-icons/ri'; // Added missing import
-import { IoTrashOutline } from 'react-icons/io5'; // Added missing import
 import Image from 'next/image';
 
 const candidatesData: CandidatesTypes[] = [
