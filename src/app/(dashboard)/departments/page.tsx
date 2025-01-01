@@ -4,10 +4,8 @@ import React from 'react'
 const page = () => {
   return (
     <section>
-      <DashboardHeader title="Hello Kayode" subtitle="Good Morning" />
-      
+     <DashboardHeader title="All Departments" subtitle="All Employee Information" />
       </section>
-    
   )
 }
 

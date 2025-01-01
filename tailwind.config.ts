@@ -15,6 +15,7 @@ export default {
         "dark": "#131313",
         "yellow": "#E25319",
         "white" : "#FFFFFF",
+        "darkyellow" : "#281913"
 
       },
     },
