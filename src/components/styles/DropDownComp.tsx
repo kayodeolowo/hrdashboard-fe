@@ -6,23 +6,23 @@ import { Dropdown } from "flowbite-react";
 
 interface DropdownProps {
   label: string;
-  options: { label: any; value: any }[]; // Use any for both label and value
-  onSelect: (value: any) => void; // Use any for selected value
-  selectedValue: any | null;
+  options: { label: string; value: string }[]; // Use any for both label and value
+  onSelect: (value: string) => void; // Use any for selected value
+  selectedValue: string | null;
   error?: string; // To display error message
   placeholder?: string;
 }
 
 const DropDownComp = forwardRef<HTMLDivElement, DropdownProps>(
   ({ label, options, onSelect, selectedValue, error, placeholder = 'Select an option' }, ref) => {
-    const [selectedOption, setSelectedOption] = useState<any | null>(selectedValue);
+    const [selectedOption, setSelectedOption] = useState<string | null>(selectedValue);
 
     // Update when selectedValue prop changes
     useEffect(() => {
       setSelectedOption(selectedValue);
     }, [selectedValue]);
 
-    const handleSelect = (value: any) => {
+    const handleSelect = (value: string) => {
       setSelectedOption(value);
       onSelect(value);
     };

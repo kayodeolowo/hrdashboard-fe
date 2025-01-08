@@ -1,9 +1,7 @@
 // components/modals/PaymentModal.js
 import React from "react";
 import { InputComponent } from "../styles/InputComponent";
-import { Dropdown } from "flowbite-react";
 import { optionsOfiiceType } from "@/app/data/options";
-import { RxDividerHorizontal } from "react-icons/rx";
 import DropDownComp from "../styles/DropDownComp";
 import { YellowBtn } from "../styles/YellowBtn";
 import { Button } from "../styles/Button";

@@ -39,7 +39,7 @@ const sampleJobs: JobTypes[] = [
     status: 'completed',
   },
 ];
-const page: React.FC = () => {
+const Page: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
   
   return (
@@ -135,4 +135,4 @@ const page: React.FC = () => {
   )
 }
 
-export default page
+export default Page
