@@ -15,7 +15,8 @@ export default {
         "dark": "#131313",
         "yellow": "#E25319",
         "white" : "#FFFFFF",
-        "darkyellow" : "#281913"
+        "darkyellow" : "#281913" ,
+        "gray": "#2F2F31",
 
       },
     },

@@ -47,7 +47,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ title, subtitle }) =>
         {/* Middle Section */}
         <div className="flex items-center space-x-2 md:space-x-4">
           {/* Search Bar */}
-          <div className="relative max-md:hidden w-[25rem] border border-gray-600 rounded-md bg-inherit">
+          <div className="relative max-md:hidden w-[25rem] border border-gray rounded-md bg-inherit">
             <FaSearch className="absolute top-3 left-3 text-gray-400" />
             <input
               type="text"
@@ -62,7 +62,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ title, subtitle }) =>
           </div>
 
           {/* Profile Dropdown */}
-          <div className="flex border-2 border-gray-600 p-1 rounded-md items-center space-x-2 cursor-pointer">
+          <div className="flex border-2 border-gray p-1 rounded-md items-center space-x-2 cursor-pointer">
             <Image
               src="/assets/images/displaypic.png"
               alt="Profile Picture"

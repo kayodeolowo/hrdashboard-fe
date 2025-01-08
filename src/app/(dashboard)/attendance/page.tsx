@@ -40,9 +40,9 @@ const Page: React.FC = () => {
     <section>
       <DashboardHeader title="All Candidates" subtitle="All candidate Information" />
       <DashboardContainer>
-        <div className="border rounded-lg border-gray-700 p-4">
+        <div className="border rounded-lg border-gray p-4">
           <div className="flex sm:flex-row flex-col items-center justify-between">
-            <div className="relative py-1 max-sm:w-full lg:w-[25rem] border border-gray-600 rounded-md bg-inherit">
+            <div className="relative py-1 max-sm:w-full lg:w-[25rem] border border-gray rounded-md bg-inherit">
               <FaSearch className="absolute top-3 left-3 text-gray-400" />
               <input
                 type="text"
@@ -55,7 +55,7 @@ const Page: React.FC = () => {
           <div className="overflow-x-auto mt-4">
             <table className="min-w-full table-auto text-white">
               <thead>
-                <tr className="border-b border-gray-700 text-[#A2A1A8] text-left">
+                <tr className="border-b border-gray text-[#A2A1A8] text-left">
                   <th className="p-3 min-w-[10rem]">Employee Name</th>
                   <th className="p-3 min-w-[10rem]">Designation</th>
                   <th className="p-3 min-w-[10rem]">Type</th>
@@ -67,7 +67,7 @@ const Page: React.FC = () => {
                 {attendanceData.map((candidate, index) => (
                   <tr
                     key={candidate.id}
-                    className={`${index !== attendanceData.length - 1 ? 'border-b border-gray-700' : ''}`}
+                    className={`${index !== attendanceData.length - 1 ? 'border-b border-gray' : ''}`}
                   >
                     <td className="p-3 flex items-center space-x-2">
                       <Image
@@ -79,15 +79,11 @@ const Page: React.FC = () => {
                       />
                       <span>{candidate.name}</span>
                     </td>
-                    <td className="p-3 border-gray-600">{candidate.designation}</td>
-                    <td className="p-3 border-gray-600">{candidate.type}</td>
-                    <td className="p-3 border-gray-600">{candidate.time}</td>
-                    <td className="p-3 border-gray-600">{candidate.status}</td>
-                    <td className="p-3 border-gray-600">
-                      <span className="text-yellow bg-[#281913] px-3 py-1.5 rounded-md text-sm">
-                        {candidate.status}
-                      </span>
-                    </td>
+                    <td className="p-3 border-gray">{candidate.designation}</td>
+                    <td className="p-3 border-gray">{candidate.type}</td>
+                    <td className="p-3 border-gray">{candidate.time}</td>
+                    <td className="p-3 border-gray">{candidate.status}</td>
+                   
                    
                   </tr>
                 ))}

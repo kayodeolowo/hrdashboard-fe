@@ -1,11 +1,13 @@
+"use client"
 import DashboardHeader from '@/components/layouts/DashboardHeader'
-import React from 'react'
+import React, { useState } from 'react'
 import { JobTypes } from './Interface'
 import { DashboardContainer } from '@/components/styles/DashboardContainer';
 import { YellowBtn } from '@/components/styles/YellowBtn';
 import { FaSearch } from 'react-icons/fa';
 import { GoPlus } from 'react-icons/go';
 import { FaLocationDot } from 'react-icons/fa6';
+import AddJobModal from '@/components/modals/AddJobModal';
 
 
 const sampleJobs: JobTypes[] = [
@@ -38,16 +40,17 @@ const sampleJobs: JobTypes[] = [
   },
 ];
 const page: React.FC = () => {
-
+  const [openModal, setOpenModal] = useState(false);
   
   return (
+    
     <section>
      <DashboardHeader title="All Jobs" subtitle="All Employee Information" />
 
      <DashboardContainer>
-<div className='border rounded-lg border-gray-700 p-4'> 
+<div className='border rounded-lg border-gray p-4'> 
      <div className='flex sm:flex-row flex-col items-center justify-between'>
-      <div className="relative py-1 max-sm:w-full lg:w-[25rem] border border-gray-600 rounded-md bg-inherit">
+      <div className="relative py-1 max-sm:w-full lg:w-[25rem] border border-gray rounded-md bg-inherit">
                         <FaSearch className="absolute top-3 left-3 text-gray-400" />
                         <input
                           type="text"
@@ -55,14 +58,14 @@ const page: React.FC = () => {
                           className="pl-10 bg-inherit pr-4 py-2 text-sm text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow"
                         />
                       </div>
-                      <YellowBtn className=" max-sm:mt-4 max-sm:w-full flex items-center space-x-4"> <GoPlus className='text-lg mr-2 text-white'/> Add New Jobs</YellowBtn>
+                      <YellowBtn   onClick={() => setOpenModal(true)} className=" max-sm:mt-4 max-sm:w-full flex items-center space-x-4"> <GoPlus className='text-lg mr-2 text-white'/> Add New Jobs</YellowBtn>
       
             
       </div>
      <div className="flex mt-6 flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
       
       {/* Active Jobs */}
-      <div className="bg-inherit border border-gray-700 p-4 rounded-lg w-full md:w-1/3">
+      <div className="bg-inherit border border-gray p-4 rounded-lg w-full md:w-1/3">
         <h2 className="text-yellow-500 font-semibold text-lg mb-4">Active Jobs</h2>
         {sampleJobs.filter(job => job.status === 'active').map(job => (
           <div key={job.id} className="bg-darkgray p-4 rounded-md shadow-lg mb-4">
@@ -83,7 +86,7 @@ const page: React.FC = () => {
       </div>
 
       {/* Inactive Jobs */}
-      <div className="bg-inherit border border-gray-700 p-4 rounded-lg w-full md:w-1/3">
+      <div className="bg-inherit border border-gray p-4 rounded-lg w-full md:w-1/3">
         <h2 className="text-red-500 font-semibold text-lg mb-4">Inactive Jobs</h2>
         {sampleJobs.filter(job => job.status === 'inactive').map(job => (
           <div key={job.id} className="bg-darkgray p-4 rounded-md shadow-lg mb-4">
@@ -104,7 +107,7 @@ const page: React.FC = () => {
       </div>
 
       {/* Completed Jobs */}
-      <div className="bg-inherit border border-gray-700 p-4 rounded-lg w-full md:w-1/3">
+      <div className="bg-inherit border border-gray p-4 rounded-lg w-full md:w-1/3">
         <h2 className="text-green-500 font-semibold  mb-4">Completed Jobs</h2>
         {sampleJobs.filter(job => job.status === 'completed').map(job => (
           <div key={job.id} className="bg-darkgray p-4 rounded-md shadow-lg mb-4">
@@ -125,6 +128,8 @@ const page: React.FC = () => {
       </div>
     </div>
     </div>
+
+    <AddJobModal onClose={() => setOpenModal(false)} isOpen={openModal} />
      </DashboardContainer>
       </section>
   )

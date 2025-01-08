@@ -1,6 +1,6 @@
 import DashboardHeader from '@/components/layouts/DashboardHeader'
 import React from 'react'
-import { EmployeeTypes } from './Interface'
+import { DepartmentTypes } from '../Interface';
 import { DashboardContainer } from '@/components/styles/DashboardContainer';
 import {  FaSearch } from 'react-icons/fa';
 import Image from 'next/image';
@@ -13,7 +13,7 @@ import { IoTrashOutline } from 'react-icons/io5';
 
 const page: React.FC = () => {
 
-  const employees: EmployeeTypes[] = [
+  const employees: DepartmentTypes[] = [
     {
       id: 1,
       name: "Vasilisa",
@@ -49,7 +49,7 @@ const page: React.FC = () => {
 
   return (
     <section>
-     <DashboardHeader title="All Employees" subtitle="All Employee Information" />
+     <DashboardHeader title="Design Department" subtitle="All Departments" />
 
      <DashboardContainer>
      <div className="p-6 border rounded-md border-gray">
@@ -73,10 +73,10 @@ const page: React.FC = () => {
 <div className="overflow-x-auto mt-4">
     <table className="min-w-full table-auto text-white">
       <thead>
-        <tr className="border-b border-gray text-left">
-          <th className="p-3 min-w-[10rem]">Employee Name</th>
-          <th className="p-3 min-w-[10rem]">Employee ID</th>
-          <th className="p-3 min-w-[10rem]">Department</th>
+        <tr className="border-b border-gray text-[#A2A1A8] text-left">
+        <th className="p-3 min-w-[10rem]">Employee ID</th>
+          <th className="p-3 min-w-[10rem]">Employee Name</th>   
+        
           <th className="p-3 min-w-[10rem]">Designation</th>
           <th className="p-3 ">Type</th>
           <th className="p-3 min-w-[10rem]">Status</th>
@@ -91,6 +91,8 @@ const page: React.FC = () => {
               index !== employees.length - 1 ? "border-b border-gray" : ""
             }`}
           >
+           
+            <td className="p-3 border-gray">{employee.employeeId}</td>
             <td className="p-3 flex items-center space-x-2">
               <Image
                 src={employee.image}
@@ -101,8 +103,7 @@ const page: React.FC = () => {
               />
               <span>{employee.name}</span>
             </td>
-            <td className="p-3 border-gray">{employee.employeeId}</td>
-            <td className="p-3 border-gray">{employee.department}</td>
+           
             <td className="p-3 border-gray">{employee.designation}</td>
             <td className="p-3 border-gray">{employee.type}</td>
             <td className="p-3 border-gray">
