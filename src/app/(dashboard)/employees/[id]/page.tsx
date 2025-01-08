@@ -21,7 +21,7 @@ const tabs = [
 
 
 
-const page = () => {
+const Page = () => {
 
     const [activeTab, setActiveTab] = useState(1);
 
@@ -100,4 +100,4 @@ const renderContent = () => {
   )
 }
 
-export default page
+export default Page
