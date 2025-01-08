@@ -10,6 +10,7 @@ import { GoPlus } from 'react-icons/go';
 import { BiFilter } from 'react-icons/bi';
 import { RiEdit2Line } from 'react-icons/ri';
 import { IoTrashOutline } from 'react-icons/io5';
+import Link from 'next/link';
 
 const page: React.FC = () => {
 
@@ -63,7 +64,10 @@ const page: React.FC = () => {
                   />
                 </div>
 <div className='flex max-md:justify-between max-md:mt-4 items-center space-x-5'>
+<Link href={`/employees/add-new-employee`}>
 <YellowBtn className="flex items-center space-x-4"> <GoPlus className='text-lg mr-2 text-white'/> Add New Employee</YellowBtn>
+
+</Link>
 <Button  className="flex items-center space-x-4"> <BiFilter className='text-lg mr-2 '/> Filter </Button>
 </div>
 

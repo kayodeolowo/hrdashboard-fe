@@ -39,7 +39,7 @@ const DashboardSidebar = () => {
             <Link key={item.id} href={item.link}>
               <p
                 className={`flex items-center w-full py-4 px-4 text-left ${
-                  pathname === item.link
+                  pathname.startsWith(item.link)
                     ? "bg-[#241D1A] text-yellow rounded-r-md border-l-4 border-yellow"
                     : "text-gray-300 hover:bg-gray-700"
                 }`}
