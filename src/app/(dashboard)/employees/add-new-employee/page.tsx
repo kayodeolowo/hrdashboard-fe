@@ -4,7 +4,7 @@ import DashboardHeader from '@/components/layouts/DashboardHeader'
 import PersonalInformation from '@/components/pages/PersonalInformation';
 import ProfessionalInformation from '@/components/pages/ProfessionalInformation';
 import { DashboardContainer } from '@/components/styles/DashboardContainer'
-import { FaUser, FaBriefcase, FaFileAlt, FaLock } from "react-icons/fa";
+import { FaUser, FaBriefcase} from "react-icons/fa";
 
 
 const tabs = [
@@ -13,7 +13,7 @@ const tabs = [
 ];
 
 
-const page = () => {
+const Page = () => {
 
   const [activeTab, setActiveTab] = useState(1);
 
@@ -62,4 +62,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
