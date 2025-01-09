@@ -1,5 +1,3 @@
-import { AttendanceTypes } from '@/app/(dashboard)/attendance/Interface';
-import Image from 'next/image';
 import React from 'react'
 
 const projectData = [
