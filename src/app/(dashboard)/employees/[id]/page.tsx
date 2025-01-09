@@ -74,7 +74,7 @@ const renderContent = () => {
 
 
     <div className='flex space-x-6'>
-    <div className="flex flex-col border rounded-lg w-[12rem] p-4 border-gray">
+    <div className="flex flex-col h-[11rem] border rounded-lg w-[12rem] p-4 border-gray">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -91,7 +91,7 @@ const renderContent = () => {
         ))}
       </div>
 
-      <div className="mt-6">{renderContent()}</div>
+      <div className="w-full">{renderContent()}</div>
 
     </div>
     </div>
