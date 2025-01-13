@@ -10,6 +10,6 @@ bg-yellow
 transition
 duration-300
 ease-in
-hover:bg-darkyellow
+hover:bg-[#FF5F15]
 text-white
 `

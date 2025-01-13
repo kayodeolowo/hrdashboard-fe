@@ -20,7 +20,7 @@ const DashboardSidebar = () => {
   const pathname = usePathname(); // Get the current path
 
   return (
-    <div className="bg-darkgray max-lg:hidden rounded-2xl h-[98vh] w-[20%] max-w-[20rem] mt-4 ml-4 p-4 flex flex-col justify-between">
+    <div className="bg-darkgray  max-lg:hidden rounded-2xl h-[98vh] w-[20%] max-w-[20rem] mt-4 ml-4 p-4 flex flex-col justify-between">
       {/* Logo */}
       <div>
         <div className="flex items-center space-x-2 mb-6">

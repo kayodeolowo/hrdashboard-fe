@@ -1,3 +1,4 @@
+"use client"
 import DashboardHeader from '@/components/layouts/DashboardHeader'
 import React from 'react'
 import { EmployeeTypes } from './Interface'
@@ -11,46 +12,29 @@ import { BiFilter } from 'react-icons/bi';
 import { RiEdit2Line } from 'react-icons/ri';
 import { IoTrashOutline } from 'react-icons/io5';
 import Link from 'next/link';
+import { useFetchAllEmployeesQuery } from '@/redux/services/dashboardService';
 
 const page: React.FC = () => {
 
-  const employees: EmployeeTypes[] = [
-    {
-      id: 1,
-      name: "Vasilisa",
-      image: "/assets/images/displaypic.png", // Replace with actual path
-      employeeId: "000666000",
-      department: "Design",
-      designation: "UI/UX Designer",
-      type: "Office",
-      status: "Activated",
-    },
-    {
-      id: 2,
-      name: "Dina",
-      image: "/assets/images/displaypic.png", // Replace with actual path
-      employeeId: "000666000",
-      department: "Development",
-      designation: "PHP Developer",
-      type: "Remote",
-      status: "Activated",
-    },
-    {
-      id: 3,
-      name: "Jack",
-      image: "/assets/images/displaypic.png", // Replace with actual path
-      employeeId: "000666000",
-      department: "Sales",
-      designation: "Sales Manager",
-      type: "Office",
-      status: "Activated",
-    },
-  ];
+  const { data, isLoading, error } = useFetchAllEmployeesQuery({});
+
+  
+
+  const all_employees = data?.data?.all_employees || []
+
+ if  (isLoading) (
+  <div className='text-white'>
+  loading
+  </div>
+  
+)
 
 
   return (
     <section>
+     <div className='sticky z-10 top-0'>
      <DashboardHeader title="All Employees" subtitle="All Employee Information" />
+     </div>
 
      <DashboardContainer>
      <div className="p-6 border rounded-md border-gray">
@@ -88,21 +72,21 @@ const page: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        {employees.map((employee, index) => (
+      {all_employees.map((employee: EmployeeTypes, index: number) => (
           <tr
             key={employee.id}
             className={`${
-              index !== employees.length - 1 ? "border-b border-gray" : ""
+              index !== all_employees.length - 1 ? "border-b border-gray" : ""
             }`}
           >
             <td className="p-3 flex items-center space-x-2">
-              <Image
+              {/* <Image
                 src={employee.image}
                 alt={employee.name}
                 width={30}
                 height={30}
                 className="rounded-full"
-              />
+              /> */}
               <span>{employee.name}</span>
             </td>
             <td className="p-3 border-gray">{employee.employeeId}</td>

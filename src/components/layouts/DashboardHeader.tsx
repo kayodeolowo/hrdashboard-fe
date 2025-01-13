@@ -32,7 +32,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ title, subtitle }) =>
 
   return (
     <DashboardContainer>
-      <div className="flex w-full justify-between items-center text-white p-4">
+      <div className="flex w-full sticky top-0 z-10 bg-dark justify-between items-center text-white p-4">
         {/* Left Section */}
         <div className="max-lg:hidden">
           <h1 className="text-lg font-semibold">{title}</h1>
