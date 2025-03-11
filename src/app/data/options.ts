@@ -1,4 +1,15 @@
-export const optionsOfiiceType = [
+export const optionsOficeType = [
     {label: 'Remote', value: 'Remote'},
-
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
+    {label: 'Remote', value: 'Remote'},
   ]

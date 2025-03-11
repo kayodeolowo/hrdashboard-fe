@@ -1,16 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import customBaseQuery from '@/utils/customBaseQuery';
 
-export const dashboardService = createApi({
-  reducerPath: 'dashboardService',
+export const departmentService = createApi({
+  reducerPath: 'departmentService',
   baseQuery: customBaseQuery, 
   endpoints: (builder) => ({
     
 
  
-    fetchAllEmployees: builder.query({
+    fetchAllDepartments: builder.query({
         query: () => {
-          const url = '/employees/all';
+          const url = '/department/all';
           return url; 
         },
          keepUnusedDataFor: 5000, 
@@ -28,4 +28,4 @@ export const dashboardService = createApi({
   }),
 });
 
-export const { useFetchAllEmployeesQuery, useFetchEmployeeDetailsQuery } = dashboardService;
+export const { useFetchAllDepartmentsQuery} = departmentService;

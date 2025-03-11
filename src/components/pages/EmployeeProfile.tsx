@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { FaUser, FaBriefcase} from "react-icons/fa";
 import PersonalInformationData from './PersonalInformationData';
 import ProfessionalInformationData from './ProfessionalInformationData';
+import { useFetchEmployeeDetailsQuery } from '@/redux/services/dashboardService';
 
 const EmployeeProfile = () => {
-
+  
 
   const tabs = [
     { id: 1, name: "Personal Information", icon: <FaUser /> },
@@ -17,7 +18,7 @@ const EmployeeProfile = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 1:
-        return <PersonalInformationData />;
+        return <PersonalInformationData  />;
       case 2:
         return <ProfessionalInformationData />;
       default:
@@ -27,7 +28,7 @@ const EmployeeProfile = () => {
 
   return (
     <div>
-      <div className="flex border-b border-gray">
+      <div className="flex overflow-x-auto border-b border-gray">
         {tabs.map((tab) => (
           <button
             key={tab.id}

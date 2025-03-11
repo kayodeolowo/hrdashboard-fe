@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authApi } from './services/loginService';
 import { dashboardService } from './services/dashboardService';
+import { departmentService } from './services/departmentService';
 // import { loginSlice } from './apiSlice/loginSlice';
 
 
@@ -8,11 +9,12 @@ import { dashboardService } from './services/dashboardService';
 export const store = configureStore({
   reducer: {
      [authApi.reducerPath]: authApi.reducer,
-     [dashboardService.reducerPath] : dashboardService.reducer
+     [dashboardService.reducerPath] : dashboardService.reducer,
+     [departmentService.reducerPath] : departmentService.reducer
  
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat( authApi.middleware, dashboardService.middleware),
+    getDefaultMiddleware().concat( authApi.middleware, dashboardService.middleware, departmentService.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

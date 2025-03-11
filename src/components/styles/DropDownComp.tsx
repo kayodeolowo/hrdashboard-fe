@@ -1,59 +1,59 @@
-"use client";
+import React, { useState, useEffect } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
 
-import React, { useState, useEffect, forwardRef } from 'react';
-import { Dropdown } from "flowbite-react";
-
-
-interface DropdownProps {
-  label: string;
-  options: { label: string; value: string }[]; // Use any for both label and value
-  onSelect: (value: string) => void; // Use any for selected value
-  selectedValue: string | null;
-  error?: string; // To display error message
-  placeholder?: string;
+interface GenderInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  onSelectGender: (value: string) => void;
+  selectedGender: string | null; // Pass the selected gender
 }
 
-const DropDownComp = forwardRef<HTMLDivElement, DropdownProps>(
-  ({ label, options, onSelect, selectedValue, error, placeholder = 'Select an option' }, ref) => {
-    const [selectedOption, setSelectedOption] = useState<string | null>(selectedValue);
+const options = [
+  { label: 'Male', value: 'male' },
+  { label: 'Female', value: 'female' },
+  { label: 'Other', value: 'other' },
+];
 
-    // Update when selectedValue prop changes
-    useEffect(() => {
-      setSelectedOption(selectedValue);
-    }, [selectedValue]);
+const GenderInput: React.FC<GenderInputProps> = ({ onSelectGender, selectedGender, ...rest }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
-    const handleSelect = (value: string) => {
-      setSelectedOption(value);
-      onSelect(value);
-    };
+  useEffect(() => {
+    if (selectedGender) {
+      setSelectedValue(selectedGender); // Set the selected gender when the component mounts
+    }
+  }, [selectedGender]);
 
-    return (
-      <div className="relative border border-gray rounded-md py-1  px-4" ref={ref}>
-        <label className="block text-sm font-semibold mb-1">{label}</label>
-        <Dropdown
-          label={selectedOption ? options.find(opt => opt.value === selectedOption)?.label : placeholder}
-          inline
-          className="w-full  " // Ensure it fills available width
-          
-        >
-          {/* This wrapper ensures max height and scrolling */}
-          <div className="overflow-y-auto max-h-[10rem] ">
-            {options.map((option) => (
-              <Dropdown.Item
-                key={option.value}
-                onClick={() => handleSelect(option.value)}
-                className="hover:bg-secondarypurple  hover:text-white"
-              >
-                {option.label}
-              </Dropdown.Item>
-            ))}
-          </div>
-        </Dropdown>
-        {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+  const handleSelect = (value: string) => {
+    setSelectedValue(value);
+    setIsOpen(false);
+    onSelectGender(value); // Pass the selected value back to the form
+  };
+
+  return (
+    <div className="relative">
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full px-3 py-2 border border-[#D1D1D1] rounded-md cursor-pointer"
+      >
+        <span className={selectedValue ? 'text-gray' : 'text-gray'}>
+          {selectedValue ? selectedValue.charAt(0).toUpperCase() + selectedValue.slice(1) : 'Select gender'}
+        </span>
+        <FaChevronDown  className='text-gray'/>
       </div>
-    );
-  }
-);
+      {isOpen && (
+        <ul className="absolute z-10 text-gray-700 w-full bg-white border border-[#D1D1D1] rounded-md mt-2 shadow-md">
+          {options.map((option) => (
+            <li
+              key={option.value}
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleSelect(option.value)}
+            >
+              {option.label}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
 
-DropDownComp.displayName = 'DropDownComp';
-export default DropDownComp;
+export default GenderInput;
